@@ -77,12 +77,11 @@ Business Rules
     Auto-Assignment: Logged-in user is automatically assigned to their role when creating appointments
 
 ## 📁 Project Structure
-
-├── core/                # Project configuration & settings
-├── auth_app/            # User registration & token logic
-├── doctors_app/         # Doctor models & profiles
-├── patients_app/        # Patient models & profiles
-└── appointments_app/    # Scheduling logic, validators & permissions
+core/                # Project configuration & settings
+auth_app/            # User registration & authentication logic
+doctors_app/         # Doctor models & profiles
+patients_app/        # Patient models & profiles
+appointments_app/    # Scheduling logic, validation & permissions
 
 ## 📌 Notes
 Email is stored in the User model
