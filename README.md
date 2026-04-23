@@ -49,32 +49,32 @@ Access the API at: http://127.0.0.1:8000/api/
 
 📅 Appointments
 
-Method,Endpoint,Description
-GET,/api/appointments/,List all appointments (filtered by user)
-POST,/api/appointments/,Create a new appointment
-GET,/api/appointments/{id}/,Retrieve detailed appointment info
-PATCH,/api/appointments/{id}/,"Update title, description or date"
-DELETE,/api/appointments/{id}/,Cancel/Delete an appointment
+| Method | Endpoint                | Description                        |
+| ------ | ----------------------- | ---------------------------------- |
+| GET    | /api/appointments/      | List user-specific appointments    |
+| POST   | /api/appointments/      | Create a new appointment           |
+| GET    | /api/appointments/{id}/ | Retrieve appointment details       |
+| PATCH  | /api/appointments/{id}/ | Update title, description, or date |
+| DELETE | /api/appointments/{id}/ | Delete an appointment              |
+
 
 🧑‍⚕️ Doctors & 🧑 Patients
 
-Method,Endpoint,Description
-GET,/api/doctors/,List available doctors
-GET,/api/doctors/{id}/,Doctor profile details
-GET,/api/patients/{id}/,Patient profile details
+| Method | Endpoint            | Description             |
+| ------ | ------------------- | ----------------------- |
+| GET    | /api/doctors/       | List available doctors  |
+| GET    | /api/doctors/{id}/  | Doctor profile details  |
+| GET    | /api/patients/{id}/ | Patient profile details |
+
 
 ## 🔒 Security & Validation Logic
 Permissions
-IsAuthenticated: All endpoints require a valid Token.
-
-IsAppointmentOwner: A custom permission class ensures that only the doctor or the patient involved in an appointment can view or modify it.
-
+    IsAuthenticated: All endpoints require a valid Token
+    IsAppointmentOwner: Only the doctor or patient involved in an appointment can access or modify it
 Business Rules
-Conflict Prevention: The API validates that neither the doctor nor the patient has another appointment at the requested time.
-
-Database Integrity: A UniqueConstraint on the model level prevents duplicate entries (Doctor + Patient + Date).
-
-Auto-Assignment: When creating an appointment, the API automatically links the logged-in user to their respective role (Doctor/Patient).
+    Conflict Prevention: Prevents overlapping appointments for both doctor and patient
+    Database Integrity: Unique constraints ensure no duplicate bookings
+    Auto-Assignment: Logged-in user is automatically assigned to their role when creating appointments
 
 ## 📁 Project Structure
 
@@ -83,6 +83,7 @@ Auto-Assignment: When creating an appointment, the API automatically links the l
 ├── doctors_app/         # Doctor models & profiles
 ├── patients_app/        # Patient models & profiles
 └── appointments_app/    # Scheduling logic, validators & permissions
+
 ## 📌 Notes
 Email is stored in the User model
 Profile data is stored in Doctor/Patient models
