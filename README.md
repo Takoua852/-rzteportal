@@ -76,13 +76,23 @@ Business Rules
     Database Integrity: Unique constraints ensure no duplicate bookings
     Auto-Assignment: Logged-in user is automatically assigned to their role when creating appointments
 
-## 📁 Project Structure
-core/                # Project configuration & settings
-auth_app/            # User registration & authentication logic
-doctors_app/         # Doctor models & profiles
-patients_app/        # Patient models & profiles
-appointments_app/    # Scheduling logic, validation & permissions
 
+## 📁 Project Structure
+
+```bash
+doctor-booking-api/
+│
+├── core/                # Project configuration & settings
+├── auth_app/            # User registration & authentication logic
+├── doctors_app/         # Doctor models & profiles
+├── patients_app/        # Patient models & profiles
+├── appointments_app/    # Scheduling logic, validation & permissions
+│
+├── manage.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+```
 ## 📌 Notes
 Email is stored in the User model
 Profile data is stored in Doctor/Patient models
